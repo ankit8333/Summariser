@@ -1,6 +1,6 @@
 # 🧠 AI Text Summariser
 
-A full-stack web application that accepts large text and generates AI-powered summaries using OpenAI.
+A full-stack web application that accepts large text and generates AI-powered summaries using GROQ_API.
 
 ---
 
@@ -74,7 +74,8 @@ npm start
 ```
 PORT=5000
 MONGO_URI=mongodb://localhost:27017/ai-summariser
-OPENAI_API_KEY=your_openai_api_key_here
+GROQ_API_KEY=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
+
 ```
 
 ---
