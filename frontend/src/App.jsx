@@ -1,9 +1,3 @@
-// src/App.jsx
-// Root component. Sets up React Router with two pages:
-//   /         → Home (Summariser page)
-//   /history  → History (Saved summaries page)
-// Navbar is shown on every page.
-
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
@@ -13,7 +7,7 @@ import History from "./pages/History";
 function App() {
   return (
     <Router>
-      <div className="min-h-screen bg-slate-950 text-white font-sans">
+      <div className="min-h-screen bg-slate-50 text-slate-800 font-sans">
         <Navbar />
         <main className="pt-6 pb-16">
           <Routes>

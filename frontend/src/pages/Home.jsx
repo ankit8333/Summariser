@@ -1,10 +1,3 @@
-// src/pages/Home.jsx
-// The main page of the app. Contains:
-//   1. Hero heading
-//   2. TextInput component (user pastes text, selects length)
-//   3. SummaryOutput component (shows result after API call)
-// State: text, summaryLength, loading, error, summary
-
 import React, { useState } from "react";
 import TextInput from "../components/TextInput";
 import SummaryOutput from "../components/SummaryOutput";
@@ -25,14 +18,11 @@ function Home() {
     setError("");
     setLoading(true);
     setSummary(null);
-
     try {
       const result = await summariseText(text, summaryLength);
       setSummary(result);
     } catch (err) {
-      setError(
-        err.response?.data?.message || "Something went wrong. Please try again."
-      );
+      setError(err.response?.data?.message || "Something went wrong. Please try again.");
     } finally {
       setLoading(false);
     }
@@ -40,31 +30,28 @@ function Home() {
 
   return (
     <div className="max-w-3xl mx-auto px-6 space-y-8">
-      {/* Hero Section */}
       <div className="text-center space-y-3 pt-8">
-        <div className="inline-flex items-center gap-2 bg-indigo-900/30 border border-indigo-700/50 
-                        text-indigo-300 text-xs font-medium px-4 py-1.5 rounded-full">
-          ✨ Powered by OpenAI GPT
+        <div className="inline-flex items-center gap-2 bg-indigo-100 border border-indigo-200 
+                        text-indigo-600 text-xs font-medium px-4 py-1.5 rounded-full">
+          ✨ Powered by Groq AI
         </div>
-        <h1 className="text-4xl sm:text-5xl font-extrabold text-white tracking-tight">
+        <h1 className="text-4xl sm:text-5xl font-extrabold text-slate-800 tracking-tight">
           Summarise any text{" "}
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-purple-400">
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 to-purple-500">
             instantly
           </span>
         </h1>
-        <p className="text-slate-400 text-lg max-w-xl mx-auto">
+        <p className="text-slate-500 text-lg max-w-xl mx-auto">
           Paste an article, essay, or report. Our AI reads it and gives you the key points in seconds.
         </p>
       </div>
 
-      {/* Error Banner */}
       {error && (
-        <div className="bg-red-950/40 border border-red-700/50 text-red-400 rounded-xl px-5 py-3 text-sm">
+        <div className="bg-red-50 border border-red-200 text-red-600 rounded-xl px-5 py-3 text-sm">
           ⚠️ {error}
         </div>
       )}
 
-      {/* Text Input */}
       <TextInput
         text={text}
         setText={setText}
@@ -74,18 +61,14 @@ function Home() {
         loading={loading}
       />
 
-      {/* Loading State */}
       {loading && (
-        <div className="bg-slate-900 border border-slate-700 rounded-2xl py-8 text-center">
+        <div className="bg-white border border-slate-200 rounded-2xl py-8 text-center shadow-sm">
           <div className="flex flex-col items-center gap-3">
             <div className="text-4xl animate-bounce">🧠</div>
             <div className="flex gap-1.5">
               {[0, 1, 2].map((i) => (
-                <div
-                  key={i}
-                  className="w-2 h-2 bg-indigo-500 rounded-full animate-bounce"
-                  style={{ animationDelay: `${i * 0.15}s` }}
-                />
+                <div key={i} className="w-2 h-2 bg-indigo-500 rounded-full animate-bounce"
+                  style={{ animationDelay: `${i * 0.15}s` }} />
               ))}
             </div>
             <p className="text-slate-400 text-sm">AI is reading your text...</p>
@@ -93,25 +76,7 @@ function Home() {
         </div>
       )}
 
-      {/* Summary Output */}
       {summary && !loading && <SummaryOutput summary={summary} />}
-
-      {/* Feature cards at bottom */}
-      {!summary && !loading && (
-        <div className="grid grid-cols-3 gap-4 pt-4">
-          {[
-            { icon: "⚡", title: "Fast", desc: "Results in under 5 seconds" },
-            { icon: "🎯", title: "Accurate", desc: "GPT-3.5 powered intelligence" },
-            { icon: "💾", title: "Saved", desc: "All summaries stored for you" },
-          ].map((f) => (
-            <div key={f.title} className="bg-slate-900/60 border border-slate-800 rounded-xl p-4 text-center">
-              <div className="text-2xl mb-2">{f.icon}</div>
-              <div className="text-white text-sm font-semibold">{f.title}</div>
-              <div className="text-slate-500 text-xs mt-1">{f.desc}</div>
-            </div>
-          ))}
-        </div>
-      )}
     </div>
   );
 }

@@ -1,24 +1,23 @@
-/* src/index.css */
-/* Imports Tailwind's base styles, components, and utilities. */
-/* Add any custom global styles below. */
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Smooth scrolling for the whole page */
 html {
   scroll-behavior: smooth;
 }
 
-/* Custom scrollbar for text areas */
+body {
+  background-color: #f8fafc;
+  color: #1e293b;
+}
+
 textarea::-webkit-scrollbar {
   width: 6px;
 }
 textarea::-webkit-scrollbar-track {
-  background: #1e293b;
+  background: #e2e8f0;
 }
 textarea::-webkit-scrollbar-thumb {
-  background: #4f46e5;
+  background: #6366f1;
   border-radius: 3px;
 }

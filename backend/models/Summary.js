@@ -16,7 +16,7 @@ const summarySchema = new mongoose.Schema(
       required: [true, "Summary is required"],
     },
     wordCount: {
-      type: Number, // Word count of the original text
+      type: Number, 
     },
     summaryLength: {
       type: String,
@@ -25,7 +25,7 @@ const summarySchema = new mongoose.Schema(
     },
   },
   {
-    timestamps: true, // Adds createdAt and updatedAt automatically
+    timestamps: true, 
   }
 );
 
