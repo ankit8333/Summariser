@@ -74,7 +74,7 @@ npm start
 ```
 PORT=5000
 MONGO_URI=mongodb://localhost:27017/ai-summariser
-GROQ_API_KEY=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
+GROQ_API_KEY=plz put your API
 
 ```
 
