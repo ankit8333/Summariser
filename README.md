@@ -87,3 +87,7 @@ GROQ_API_KEY=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
 | POST   | /api/summarise      | Summarise text using OpenAI  |
 | GET    | /api/summaries      | Get all saved summaries      |
 | DELETE | /api/summaries/:id  | Delete a saved summary       |
+
+##how look like
+<img width="2876" height="1800" alt="Screenshot 2026-06-21 151001" src="https://github.com/user-attachments/assets/64404b4a-dc07-4725-b1c9-c926fca6d34a" />
+<img width="2880" height="1798" alt="Screenshot 2026-06-21 150953" src="https://github.com/user-attachments/assets/b8bcde87-32d8-4a3f-b970-774919ec0b1b" />
