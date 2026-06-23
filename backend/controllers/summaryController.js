@@ -15,7 +15,6 @@ const summariseText = async (req, res) => {
         .json({ message: "Please provide at least 20 characters of text." });
     }
 
-<<<<<<< HEAD
     // ✅ Check if API key is loaded at all
     const apiKey = process.env.GROQ_API_KEY;
     if (!apiKey) {
@@ -25,8 +24,6 @@ const summariseText = async (req, res) => {
 
     console.log("🔑 Using API key starting with:", apiKey.substring(0, 8) + "...");
 
-=======
->>>>>>> 7a704bb869582b1e80bceca2c7d99ff2da96cf60
     const lengthGuide = {
       short: "2-3 sentences",
       medium: "a concise paragraph (4-6 sentences)",
@@ -54,11 +51,7 @@ Summary:`;
       },
       {
         headers: {
-<<<<<<< HEAD
           Authorization: `Bearer ${apiKey}`,
-=======
-          Authorization: `Bearer ${process.env.GROQ_API_KEY}`,
->>>>>>> 7a704bb869582b1e80bceca2c7d99ff2da96cf60
           "Content-Type": "application/json",
         },
       }
@@ -79,7 +72,6 @@ Summary:`;
       success: true,
       data: newSummary,
     });
-<<<<<<< HEAD
 
   } catch (error) {
     // ✅ Show the REAL error clearly in terminal
@@ -92,11 +84,6 @@ Summary:`;
 
     const errorMsg = error.response?.data?.error?.message || error.message;
     res.status(500).json({ message: errorMsg });
-=======
-  } catch (error) {
-    console.error("Summarise error:", error.response?.data || error.message);
-    res.status(500).json({ message: "Failed to generate summary. Check your GROQ_API_KEY." });
->>>>>>> 7a704bb869582b1e80bceca2c7d99ff2da96cf60
   }
 };
 
